@@ -12,15 +12,13 @@
  * @license http://www.superdesk.org/license
  */
 
-namespace SWP\Bundle\TemplatesSystem\Tests\Functional\app;
+namespace SWP\Bundle\TemplatesSystemBundle\Tests\Functional\app;
 
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 
 class AppKernel extends Kernel
 {
-    private $rootConfig;
-
     public function registerBundles()
     {
         if (!file_exists($filename = $this->getRootDir().'/TemplatesSystem/bundles.php')) {
