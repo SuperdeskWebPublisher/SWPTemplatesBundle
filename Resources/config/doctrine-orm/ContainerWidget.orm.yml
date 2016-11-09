@@ -1,5 +1,5 @@
 SWP\Bundle\TemplatesSystemBundle\Model\ContainerWidget:
-    type: entity
+    type: mappedSuperclass
     table: swp_container_widgets
     repositoryClass: SWP\Bundle\TemplatesSystemBundle\Repository\ContainerWidgetRepository
     id:

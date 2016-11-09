@@ -1,7 +1,7 @@
-SWP\Bundle\TemplatesSystemBundle\Model\WidgetModel:
+SWP\Bundle\TemplatesSystemBundle\Model\Container:
     type: mappedSuperclass
-    table: swp_widget
-    repositoryClass: SWP\Bundle\TemplatesSystemBundle\Repository\WidgetModelRepository
+    table: swp_container
+    repositoryClass: SWP\Bundle\TemplatesSystemBundle\Repository\ContainerRepository
     id:
         id:
             type: integer
@@ -12,13 +12,23 @@ SWP\Bundle\TemplatesSystemBundle\Model\WidgetModel:
         name:
             type: string
             length: 255
-            unique: true
         type:
+            type: integer
+        width:
+            type: integer
+            nullable: true
+        height:
+            type: integer
+            nullable: true
+        styles:
+            type: text
+            nullable: true
+        cssClass:
             type: string
+            length: 255
+            nullable: true
         visible:
             type: boolean
-        parameters:
-            type: json_array
         createdAt:
             type: datetime
             options:
