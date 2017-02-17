@@ -14,28 +14,13 @@
 
 namespace SWP\Bundle\TemplatesSystemBundle\Factory;
 
-class ContainerDataFactory implements ContainerDataFactoryInterface
+interface ContainerDataFactoryInterface
 {
     /**
-     * @var string
-     */
-    private $className;
-
-    /**
-     * Factory constructor.
+     * @param string $key
+     * @param string $value
      *
-     * @param string $className
+     * @return mixed
      */
-    public function __construct($className)
-    {
-        $this->className = $className;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function create(string $key, string $value)
-    {
-        return new $this->className($key, $value);
-    }
+    public function create(string $key, string $value);
 }

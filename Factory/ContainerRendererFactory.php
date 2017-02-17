@@ -14,7 +14,9 @@
 
 namespace SWP\Bundle\TemplatesSystemBundle\Factory;
 
-class ContainerDataFactory implements ContainerDataFactoryInterface
+use SWP\Component\TemplatesSystem\Gimme\Model\ContainerInterface;
+
+class ContainerRendererFactory implements ContainerRendererFactoryInterface
 {
     /**
      * @var string
@@ -26,7 +28,7 @@ class ContainerDataFactory implements ContainerDataFactoryInterface
      *
      * @param string $className
      */
-    public function __construct($className)
+    public function __construct(string $className)
     {
         $this->className = $className;
     }
@@ -34,8 +36,12 @@ class ContainerDataFactory implements ContainerDataFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function create(string $key, string $value)
-    {
-        return new $this->className($key, $value);
+    public function create(
+        ContainerInterface $containerEntity,
+        \Twig_Environment $renderer = null,
+        $debug = false,
+        $cacheDir = null
+    ) {
+        return new $this->className($containerEntity, $renderer, $debug, $cacheDir);
     }
 }
